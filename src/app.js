@@ -77,7 +77,7 @@ app.get('/weather', (req, res)=>{
                   error
               })
             }
-            forecast(longitude, latitude, (error, {temp, rain, feelslike,} = {}) => {
+            forecast(longitude, latitude, (error, {temp, rain, feelslike, description} = {}) => {
               if (error){
                 res.send({
                     message: 'problem in forcast',
@@ -94,7 +94,7 @@ app.get('/weather', (req, res)=>{
                     address: req.query.address,
                     long: longitude,
                     lat: latitude,
-                    forecast: "The current temperature is "+temp+" C, but feels like "+feelslike+" C and the precipitation will be " + rain +" mm",
+                    forecast: "The weather is " + description +" The current temperature is "+temp+" C, but feels like "+feelslike+" C and the precipitation will be " + rain +" mm",
 
                 })
               }
