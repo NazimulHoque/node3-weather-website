@@ -12,6 +12,7 @@ const forecast = require('./utils/forecast')
 //for express documentation:
 //http://expressjs.com/en/4x/api.html#express
 const app = express()
+const port = process.env.PORT || 3000
 //path module allows easy manipulation of file paths
 // '../public' move up one directory, then go into public
 const public_path = path.join(__dirname, '../public')
@@ -129,6 +130,6 @@ app.get('*', (req, res)=>{
     res.send('404: this page aint on it')
 })
 
-app.listen(3000, () =>{
+app.listen(port, () =>{
     console.log('http://localhost:3000 server is up on port ( 3000 )')
 })
